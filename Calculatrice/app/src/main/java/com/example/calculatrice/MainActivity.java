@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void vider(View view) {
         ec = findViewById(R.id.ecran);
+        temp = temp1 = temp2 = 0;
         ec.setText("");
     }
 
