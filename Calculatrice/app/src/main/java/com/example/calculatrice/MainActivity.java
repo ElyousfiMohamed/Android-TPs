@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter aad;
     int temp,temp1,temp2;
     char op;
-    boolean x = false;
+    boolean x = false,isNegative = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         ec = findViewById(R.id.ecran);
         ec.setText(ec.getText().toString()+btn.getText());
         temp = Integer.parseInt(ec.getText().toString());
+
+        if(isNegative) {
+            temp = temp * -1;
+        }
         x = true;
     }
 
@@ -48,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         ec = findViewById(R.id.ecran);
         op = btn.getText().charAt(0);
         ec.setText("");
+        if(op == '-' && x == false) {
+            isNegative = true;
+        }
+
         temp1 = temp;
         x = false;
     }
@@ -62,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             switch (op) {
                 case '+' :
                     temp = temp1+temp2;
-                    ec.setText(Integer.toString(temp));
+                        ec.setText(Integer.toString(temp));
                     break;
                 case '-' :
                     temp = temp1-temp2;

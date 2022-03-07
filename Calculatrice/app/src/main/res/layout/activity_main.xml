@@ -18,10 +18,9 @@
             android:id="@+id/ecran"
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:editable="false"
             android:ems="10"
             android:hint=""
-            android:inputType="none"
+            android:inputType="number"
             android:translationX="130dp" />
 
     </TableRow>
