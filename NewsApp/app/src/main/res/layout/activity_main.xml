@@ -6,19 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/lin1"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:orientation="horizontal">
 
@@ -42,54 +34,49 @@
         <LinearLayout
             android:id="@+id/lin2"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@+id/lin1">
 
             <ImageView
                 android:layout_width="34dp"
                 android:layout_height="44dp"
-                android:layout_margin="5dp"
-                android:src="@drawable/search" />
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/search"
+                />
 
-            <EditText
+            <DatePicker
                 android:id="@+id/date_search"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Date de debut"
-                android:inputType="text"
-                android:textColor="@color/Chocolate"
-                android:textStyle="bold" />
+                android:layout_height="90dp"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"/>
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
-
-            <Button
-                android:id="@+id/search_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rechercher"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Rechercher"
+            android:layout_below="@id/lin2"
+            android:layout_centerHorizontal="true"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search_button"/>
 
         <ListView
             android:id="@+id/newsList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp" />
-
-    </LinearLayout>
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/progressBar"/>
 
 </RelativeLayout>

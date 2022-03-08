@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,7 +32,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText motCle,dateDebut;
+    EditText motCle;
+    DatePicker dateDebut;
     ListView newsList;
     Button btn;
 
@@ -69,10 +71,11 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("TAG", "onClick: ");
+
                 data.clear();
                 String key=motCle.getText().toString();
-                String date=dateDebut.getText().toString();
+                String date= String.valueOf(dateDebut.getYear())+"-"+String.valueOf(dateDebut.getMonth()+1)+"-"+String.valueOf(dateDebut.getDayOfMonth());
+                Log.i("TAG",  date);
                 Log.i("key", key);
                 Log.i("date", date);
                 Call<ListArticleResponse> callArticles =serviceAPI.articles(key,date,"3cf8c4eb320946bf9d88200dd85311b3");
